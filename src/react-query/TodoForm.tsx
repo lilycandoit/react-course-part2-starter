@@ -24,7 +24,7 @@ const TodoForm = () => {
         savedTodo,
         ...(todos || []),
       ]);
-      console.log(savedTodo);
+      if (ref.current) ref.current.value=''; // to clear input of form
     },
   });
   const ref = useRef<HTMLInputElement>(null);
@@ -32,8 +32,7 @@ const TodoForm = () => {
   return (
     <>
       {addTodo.error && (
-        <div className="alert alert-danger">{addTodo.error.message}
-        </div>
+        <div className="alert alert-danger">{addTodo.error.message}</div>
       )}
       <form
         className="row mb-3"
@@ -53,7 +52,9 @@ const TodoForm = () => {
           <input ref={ref} type="text" className="form-control" />
         </div>
         <div className="col">
-          <button className="btn btn-primary">Add</button>
+          <button className="btn btn-primary" disabled={addTodo.isLoading}>
+            {addTodo.isLoading ? 'Adding...' : 'Add'}
+          </button>
         </div>
       </form>
     </>
