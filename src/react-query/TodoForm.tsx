@@ -1,14 +1,12 @@
 import { useRef } from 'react';
 import useAddTodo from '../routing/hooks/useAddTodo';
 
-
-
 const TodoForm = () => {
   const ref = useRef<HTMLInputElement>(null);
 
   const addTodo = useAddTodo(() => {
     if (ref.current) ref.current.value = ''; // to clear input of form
-  })
+  });
 
   return (
     <>
@@ -30,12 +28,14 @@ const TodoForm = () => {
         }}
       >
         <div className="col">
-          <input ref={ref} type="text" className="form-control" />
+          <input
+            ref={ref}
+            type="text"
+            className="form-control"
+          />
         </div>
         <div className="col">
-          <button className="btn btn-primary" disabled={addTodo.isLoading}>
-            {addTodo.isLoading ? 'Adding...' : 'Add'}
-          </button>
+          <button className="btn btn-primary">Add</button>
         </div>
       </form>
     </>
