@@ -1,9 +1,10 @@
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import authReducer from "./reducers/authReducer";
+import AuthContext from "./contexts/authContext";
 
 const LoginStatus = () => {
-  const [user, dispatch] = useReducer(authReducer, '');
-  //an array of 2 elements: current users and dispatch function
+  const {user, dispatch} = useContext(AuthContext);
+  //we use Context hook to access AuthContext, and grab users and dispatch function from it
 
   if (user)
     return (
