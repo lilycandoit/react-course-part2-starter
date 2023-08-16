@@ -14,7 +14,8 @@ const useAddTodo = (onAdd: () => void) => {
     mutationFn: todoService.post,
 
     onMutate: (newTodo) => {
-      const previousTodos = queryClient.getQueryData<Todo[]>(CACHE_KEY_TODOS) || [];
+      const previousTodos =
+        queryClient.getQueryData<Todo[]>(CACHE_KEY_TODOS) || [];
 
       queryClient.setQueryData<Todo[]>(CACHE_KEY_TODOS, (todos) => [
         newTodo,
