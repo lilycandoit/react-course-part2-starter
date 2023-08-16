@@ -1,9 +1,9 @@
-import { useReducer, useState } from 'react';
-import taskReducer from './reducers/taskReducer';
+import { useContext } from 'react';
+import TasksContext from './contexts/taskContext';
 
 const TaskList = () => {
-  const [tasks, dispatch] = useReducer(taskReducer, []);
-  // we get an array of 2 elements, one is current state "tasks" and dispatch action.
+  const {tasks, dispatch} = useContext(TasksContext);
+  // we destructure an object with tasks and dispatch, we use Context hook with the type of TasksContext
 
   return (
     <>
