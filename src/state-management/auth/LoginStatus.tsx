@@ -1,7 +1,7 @@
-import useAuth from "./hooks/useAuth";
+import useAuth from './useAuth';
 
 const LoginStatus = () => {
-  const {user, dispatch} = useAuth();
+  const { user, dispatch } = useAuth();
   //we use custom hook to access AuthContext, and grab users and dispatch function from it
 
   if (user)
@@ -9,7 +9,10 @@ const LoginStatus = () => {
       <>
         <div>
           <span className="mx-2">{user}</span>
-          <a onClick={() => dispatch({type: 'LOGOUT'})} href="#">
+          <a
+            onClick={() => dispatch({ type: 'LOGOUT' })}
+            href="#"
+          >
             Logout
           </a>
         </div>
@@ -17,7 +20,10 @@ const LoginStatus = () => {
     );
   return (
     <div>
-      <a onClick={() => dispatch({type: 'LOGIN', username: 'hueduong'})} href="#">
+      <a
+        onClick={() => dispatch({ type: 'LOGIN', username: 'hueduong' })}
+        href="#"
+      >
         Login
       </a>
     </div>
