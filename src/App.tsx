@@ -1,15 +1,9 @@
-import { useReducer } from 'react';
 import './App.css';
+import AuthProvider from './state-management/AuthProvider';
 import HomePage from './state-management/HomePage';
 import NavBar from './state-management/NavBar';
-import TasksContext from './state-management/contexts/taskContext';
-import taskReducer from './state-management/reducers/taskReducer';
-import authReducer from './state-management/reducers/authReducer';
-import AuthContext from './state-management/contexts/authContext';
-import AuthProvider from './state-management/AuthProvider';
-import TaskProvider from './state-management/TaskProvider';
+import { TaskProvider } from './state-management/tasks'; // since we moved to index.ts file
 function App() {
-
   return (
     <AuthProvider>
       <TaskProvider>
