@@ -7,15 +7,15 @@ import taskReducer from './state-management/reducers/taskReducer';
 import authReducer from './state-management/reducers/authReducer';
 import AuthContext from './state-management/contexts/authContext';
 import AuthProvider from './state-management/AuthProvider';
+import TaskProvider from './state-management/TaskProvider';
 function App() {
-  const [tasks, taskDispatch] = useReducer(taskReducer, []);
 
   return (
     <AuthProvider>
-      <TasksContext.Provider value={{ tasks, dispatch: taskDispatch }}>
+      <TaskProvider>
         <NavBar />
         <HomePage />
-      </TasksContext.Provider>
+      </TaskProvider>
     </AuthProvider>
   );
 }

@@ -1,13 +1,10 @@
-import { useContext } from 'react';
-import TasksContext from './contexts/taskContext';
-import AuthContext from './contexts/authContext';
+import useAuth from './hooks/useAuth';
+import useTasks from './hooks/useTasks';
 
 const TaskList = () => {
-  const {tasks, dispatch} = useContext(TasksContext);
-  // we destructure an object with tasks and dispatch, we use Context hook with the type of TasksContext
+  const {tasks, dispatch} = useTasks();
 
-  const {user} = useContext(AuthContext); // to test if we can use context of login with add task 
-
+  const {user} = useAuth(); 
   return (
     <>
       <p>User: {user}</p> 
